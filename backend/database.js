@@ -20,6 +20,10 @@ ItemSchema = new mongoose.Schema(
         baseprice:Number,
         description:String,
         time:Number,
+        available:{
+            type:Boolean,
+            default:true
+        },
         modifiers:[ModifierSchema]
     }
 )

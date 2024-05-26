@@ -88,7 +88,7 @@ async function Login(e)
                             
                         </div>
 
-                        <button className="bg-red-600 rounded-3xl p-4 text-white capitalize w-4/12">Se Connecter</button>
+                        <a href="/" className="bg-red-600 rounded-3xl p-4 text-white capitalize w-4/12">Se Connecter</a>
                         
                         <select className="bg-red-600 p-4 rounded-3xl text-white" id="">
                             <option value="">Fr</option>

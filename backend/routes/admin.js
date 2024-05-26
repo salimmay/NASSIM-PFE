@@ -72,9 +72,15 @@ router.patch("/info/:id",async(req,res)=>
     res.json(shop);
 });
 
-router.post("/item",async(req,res)=>
+router.patch("/available/:id",async(req,res)=>
 {
-
+    try{
+        const {available} = req.body;
+        await Item.findOneAndUpdate({_id:req.params.id},{available:available},{new:true})
+    }catch(e)
+    {
+        res.status(500).json(e)
+    }
 });
 
 router.get("/updateitem" , async(req,res)=>

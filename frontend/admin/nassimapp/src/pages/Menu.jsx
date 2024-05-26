@@ -150,7 +150,12 @@ function Card({item,setOpen,select,primarycolor})
 
     return(
         <>
-        <div className="flex flex-col border-b-2 m-2 rounded-xl overflow-hidden" onClick={select} >
+        <div className="flex flex-col border-b-2 m-2 rounded-xl overflow-hidden" onClick={item.available?(select):(()=>{})} 
+        
+        style={
+            item.available?({opacity:1}):({opacity:0.3})
+        }
+        >
 {/*          <img className="h-32 w-full object-cover" src={item.image? (item.image.data):("")}  alt="" /> */}
 
             <img className="h-32 w-full object-cover" src={renderImage(item.img)}  alt="" />

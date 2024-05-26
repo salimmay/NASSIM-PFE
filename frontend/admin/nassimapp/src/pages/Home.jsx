@@ -15,7 +15,7 @@ function Home()
     async function Login(e)
     {
         e.preventDefault();
-        const response = await axios.post("http://localhost:8080/auth/login",formData);
+        const response = await axios.post("/api/auth/login",formData);
         if(response.status == 200)
         {
             const data = response.data;
@@ -44,7 +44,7 @@ function Home()
 
                         </div>
 
-                        <button className="bg-red-600 rounded-3xl p-4 text-white capitalize w-4/12">créer un nouveau compte</button>
+                        <a href="/signup" className="bg-red-600 rounded-3xl p-4 text-white capitalize w-4/12">créer un nouveau compte</a>
                         
                         <select className="bg-red-600 p-4 rounded-3xl text-white" id="">
                             <option value="">Fr</option>

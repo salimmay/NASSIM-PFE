@@ -37,6 +37,7 @@ async function CalculateOrder(items)
   
     items.forEach(async item=>{
         const i = await Item.findOne({_id:item.id}).select("baseprice");
+        t += i.baseprice;
     });
     return t;
 }
@@ -52,39 +53,40 @@ router.post("/total",async(req,res)=>
 router.get("/order/:id",async(req,res)=>
 {
     const order = await Order.findOne({_id:req.params.id});
+    var total = 0
+    order.items.forEach(async item=>
+    {   
+        const i = await Item.findOne({_id:item._id}).select("baseprice");
+
+        item.modifiers.map(modifier=>{
+            if(modifier.on)
+                total += modifier.price;
+                
+        });
+
+        total += i.baseprice;
+    });
+    order.total = 35;
     res.status(200).json(order)
 });
 
-async function CalculateOrder(items)
-{   
-    
-    return total;
-}
+
 
 router.post("/checkout",async(req,res)=>
 {
     const body = req.body;
     
-    var total = 0;
 
-    body.list.forEach(async item=>
-    {   
-        //total += item.baseprice * item.counter;
-    });
-
-    
     const order = new Order({
         userId:body.userId,
         table:body.table,
         items:body.list,
-        //total:total
     });
 
     await order.save();
 
-    //const orders = await Order.find({userId:body.userId});
-
     res.status(200).json(order);
+
 });
 
 module.exports = router
