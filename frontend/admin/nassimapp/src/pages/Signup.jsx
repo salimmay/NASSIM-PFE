@@ -10,13 +10,18 @@ import { MdPhone } from "react-icons/md";
 import { MdPerson,MdMail,MdLock } from "react-icons/md";
 import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
 import { useNavigate,redirect,Navigate} from "react-router-dom";
+
+import { useContext } from "react";
+import {SnackBarContext }  from "../hooks/useSnackBar";
+
 function Signup()
 {
     const navigator = useNavigate();
 
     const[formData,setFormData] = useState({username:String,password:String});
     const[token,setToken] = useState("");
-
+    const {ShowMessage} = useContext(SnackBarContext)
+    
     useEffect(()=>{
         setToken(localStorage.getItem("token"));
         if(token != null && token != "")
@@ -61,6 +66,7 @@ async function Login(e)
             }
             if(response.status == 400)
             {
+                ShowMessage("email already exist","red",3)
                 console.log(data.msg)
             }
         }catch

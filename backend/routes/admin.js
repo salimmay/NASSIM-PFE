@@ -259,7 +259,7 @@ router.delete("/order/:id",async(req,res)=>
 router.post("/qrcodes",async (req,res)=>
 {
     const {userId,tablecount} = req.body;
-    const clientIp = "http://192.168.64.169:5000"
+    const clientIp = "http://192.168.43.39:5000"
 
     let codes = [];
     for (let index = 0; index <tablecount; index++) {

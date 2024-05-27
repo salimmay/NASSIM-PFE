@@ -6,11 +6,16 @@ import axios from "axios";
 import useAuthAdmin from "../hooks/useAuth";
 import {MdEmail, MdLock} from "react-icons/md"
 
+import { useContext } from "react";
+import {SnackBarContext }  from "../hooks/useSnackBar";
+
 function Home()
 {
     const [formData,setFormData] = useState({});
     const navigator = useNavigate();
     const auth = useAuthAdmin();
+
+    const {ShowMessage} = useContext(SnackBarContext)
 
     async function Login(e)
     {
@@ -22,6 +27,8 @@ function Home()
             auth.setAdminToken(data);
             navigator("/manage");
         }
+        else
+        ShowMessage("error login ","green",3)
     }
 
     const handleChange = (e) => {

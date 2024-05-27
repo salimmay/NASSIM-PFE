@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import useManageShop from "../services/ManagerShop";
 
+import { useContext } from "react";
+import {SnackBarContext }  from "../hooks/useSnackBar";
 function renderImage(binarystring) 
 {
     if(binarystring)
@@ -17,6 +19,8 @@ function Shopinfo()
     const [info,setInfo] = useState({});
     
     const shop = useManageShop();
+
+    const {ShowMessage} = useContext(SnackBarContext)
     async function getInfo()
     {
         const data = await shop.GetInfo();
@@ -29,6 +33,7 @@ function Shopinfo()
         info.logo = imgbuffer;
         info.cover = coverBuffer;
         const data = await shop.UpdateInfo(info);
+        ShowMessage("informations sauvgarder","green",3)
     }
 
 
