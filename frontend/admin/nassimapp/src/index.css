@@ -21,6 +21,10 @@
     border-radius: 1vh;  /* Rounded corners */
 }
 
+footer 
+{
+    color: white;
+}
 .container h1
 {
     font-weight:500;

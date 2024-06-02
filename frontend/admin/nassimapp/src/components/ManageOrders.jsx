@@ -44,7 +44,7 @@ const ManageOrders = ({}) =>
                 >
                     <div className="bg-white w-3/6 h-5/6 rounded-xl ">
 
-                        <div className="p-3 font-bold border-b-2" style={{height:"10%"}}> Order  for table   {selectedOrder.table}</div>
+                        <div className="p-3 font-bold border-b-2" style={{height:"10%"}}> Command pour la table   {selectedOrder.table}</div>
                         <div className="flex flex-col gap-2 h-4/5 overflow-y-scroll" height={{height:"80%"}}>
                             {
                                 selectedOrder.items&&selectedOrder.items.map((item,index)=>(
@@ -81,7 +81,7 @@ const ManageOrders = ({}) =>
 
         
         <div className="">
-            <h1 className="font-bold text-xl">Orders</h1>
+            <h1 className="title">Gérer les commandes</h1>
             <div className="flex flex-col gap-2 p-2">
                 {
                     orders.map((order,index)=>(

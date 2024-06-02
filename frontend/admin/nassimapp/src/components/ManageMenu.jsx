@@ -61,7 +61,7 @@ function ManageMenu()
             setOpen={setItemAlert}
         />
 
-            <h1 className="title">Gere Le Menu</h1>  
+            <h1 className="title">Gérer Le Menu</h1>  
             <div className="flex gap-3">
                 <BasicModal button={
                     <div className="flex items-center p-4 bg-red-600 rounded-xl w-full">

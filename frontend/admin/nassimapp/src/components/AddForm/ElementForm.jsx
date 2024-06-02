@@ -54,6 +54,7 @@ function ElementForm({id,name,setModalOpen,selectedItem})
 
         if(selectedItem)
         {
+            formData.modifiers = assignedModifiers;
             manager.UpdateElement(selectedItem._id,formData);
         }
         else
@@ -162,29 +163,15 @@ function ElementForm({id,name,setModalOpen,selectedItem})
 
                     </div>
 
-                    <div className="flex flex-col gap-2 p-4 border-gray w-full ">
-                        <h1>List des Modifieurs</h1>
 
-                        <div className="flex flex-col gap-2">
-                            {
-                                assignedModifiers.map(modifier=>(
-                                    <div className="flex gap-2 border-gray content-between  border-b-2 p-2 w-4/12">
-                                        <div className="w-9/12">{modifier.name}</div>
-                                        <div className="w-1/12">{modifier.price}dt</div>
-                                        <MdDeleteOutline onClick={()=>RemoveModifier(modifier)} className="w-2/12" fill={"red"} size={"1.5rem"}/>
-                                    </div>
-
-                                ))
-                            }
-                        </div>
-
-                    </div>
 
 
                     <Autocomplete 
                         multiple
                         id="checkboxes-tags-demo"
                         options={modifiers}
+                        defaultValue={selectedItem?(selectedItem.modifiers):([])}
+                        defaultChecked={true}
                         disableCloseOnSelect
                         getOptionLabel={(option) => option.name}
                         onChange={(event, value) => setAssignedModifiers(value)} 
@@ -205,6 +192,24 @@ function ElementForm({id,name,setModalOpen,selectedItem})
                         )}
                     />
 
+
+                    <div className="flex flex-col gap-2 p-4 border-gray w-full ">
+                        <h1>List des Modifieurs</h1>
+
+                        <div className="flex flex-col gap-2">
+                            {
+                                assignedModifiers.map(modifier=>(
+                                    <div className="flex gap-2 border-gray content-between  border-b-2 p-2 w-4/12">
+                                        <div className="w-9/12">{modifier.name}</div>
+                                        <div className="w-1/12">{modifier.price}dt</div>
+                                        <MdDeleteOutline onClick={()=>RemoveModifier(modifier)} className="w-2/12" fill={"red"} size={"1.5rem"}/>
+                                    </div>
+
+                                ))
+                            }
+                        </div>
+
+                    </div>
 
                 </div>
 

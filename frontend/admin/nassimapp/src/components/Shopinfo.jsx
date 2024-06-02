@@ -97,7 +97,7 @@ function Shopinfo()
     return(
         <>
             <div className="row">
-                <h1 className="title">Géré Le Resturant</h1>
+                <h1 className="title">Gérer Le Resturant</h1>
                 <button className="bg-red-600 text-white p-3 m-1 rounded" onClick={updateInfo}>Sauvgarder</button>   
             </div>
 

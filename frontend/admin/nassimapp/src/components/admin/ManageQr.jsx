@@ -38,7 +38,7 @@ function ManageQr()
     return(
         <>
         <div className="h-full w-full">
-            <h1 className="p-3 m-1 text-2xl">Generateur des codes Qr</h1>
+            <h1 className="title">Generateur des codes Qr</h1>
             
             <form action="" onSubmit={getQrCodes} onChange={handleChange}>
                 <input type="number" name="tablecount" className="bg-white p-4 rounded-xl border-2" placeholder="Nomber de tables" />
